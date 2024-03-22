@@ -4,7 +4,7 @@ const router = express.Router();
 const Room = require("../models/Room.js");
 
 // Get all rooms
-router.get("/", async (req, res, next) => {
+router.get("/rooms", async (req, res, next) => {
   try {
     const rooms = await Room.find();
     res.json(rooms);
@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // Create a new room
-router.post("/", async (req, res, next) => {
+router.post("/rooms", async (req, res, next) => {
   try {
     const room = await Room.create(req.body);
     res.status(201).json(room);

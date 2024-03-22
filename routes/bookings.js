@@ -4,7 +4,7 @@ const router = express.Router();
 const Booking = require("../models/Booking");
 
 // Get all bookings
-router.get("/", async (req, res, next) => {
+router.get("/bookings", async (req, res, next) => {
   try {
     const bookings = await Booking.find();
     res.json(bookings);
@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // Create a new booking
-router.post("/", async (req, res, next) => {
+router.post("/bookings", async (req, res, next) => {
   try {
     const booking = await Booking.create(req.body);
     res.status(201).json(booking);
